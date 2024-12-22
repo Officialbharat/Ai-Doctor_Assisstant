@@ -1,0 +1,182 @@
+/* Modern Health Theme Colors */
+:root {
+  --primary: #4CAF50;
+  --secondary: #2196F3;
+  --accent: #E91E63;
+  --background: #f5f9f6;
+  --text: #2c3e50;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--shadow);
+  overflow: hidden;
+  animation: slideIn 0.5s ease-out;
+}
+
+.chat-header {
+  background: var(--primary);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.chat-body {
+  height: 500px;
+  padding: 20px;
+  overflow-y: auto;
+  background: var(--background);
+}
+
+.chat-message {
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 15px;
+  max-width: 80%;
+  animation: messageSlide 0.3s ease-out;
+}
+
+.bot-message {
+  background: white;
+  color: var(--text);
+  box-shadow: 0 3px 10px var(--shadow);
+  margin-right: auto;
+  border-bottom-left-radius: 5px;
+}
+
+.user-message {
+  background: var(--secondary);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 5px;
+}
+
+.chat-footer {
+  padding: 20px;
+  background: white;
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: var(--primary);
+}
+
+button {
+  padding: 12px 25px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  background: #45a049;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes messageSlide {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chat-container {
+    border-radius: 0;
+    height: 100vh;
+  }
+  
+  .chat-body {
+    height: calc(100vh - 140px);
+  }
+  
+  .chat-message {
+    max-width: 90%;
+  }
+  
+  body {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-footer {
+    padding: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+  }
+  
+  .chat-header {
+    font-size: 1.2rem;
+    padding: 15px;
+  }
+}
